@@ -1,24 +1,5 @@
 <script>
-    import valores from "$lib/valores";
     import { userData, setSelectedComponent } from "$stores";
-    import { Button } from "$components";
-
-    let subopciones = null;
-    let opcionEscogida = null;
-
-    $: ciudadEscogida = $userData.ciudadEscogida;
-    $: transporte = valores[ciudadEscogida]?.Transporte;
-
-    function handleOnClick(button) {
-        if (!button.valor && button.subopciones.length) {
-            subopciones = button.subopciones;
-        } else {
-            descontarOpcion(button.valor);
-            setSelectedComponent("ocio2");
-        }
-        opcionEscogida = button;
-    }
-
     function descontarOpcion(valor) {
         if ($userData.presupuesto >= valor) {
             $userData.presupuesto -= valor;
@@ -28,23 +9,55 @@
     }
 </script>
 
-
-<div class="cont cont--m pad--t80">
-    <p class="txt pad--b40">{valores[ciudadEscogida].subtitle}<p>
-
-    <div class="buttonCont">
-        {#if transporte.length}
-            {#each transporte as item}
-                <button class="buttonOcio" on:click={() => {handleOnClick(item)}}>
-                    <h6>{item.title}</h6>
-                </button>
-            {/each}
-        {/if}
+<div class="cont cont--m pad--t80 pad--b80">
+    <div class="txt">
+        <p>
+            Luego de una semanas, tienes un tiempo libre para ti
+        </p>
+      
     </div>
+</div>
+<div class="buttonCont">
+    <button
+        class="buttonOcio"
+        on:click={() => {
+            descontarOpcion(0);
+            setSelectedComponent("work");
+        }}
+    >
+        Ir al gimnasio
+    </button>
+    <button
+        class="buttonOcio"
+        on:click={() => {
+            descontarOpcion(25);
+            setSelectedComponent("work");
+        }}
+    >
+        Aprender un idioma 
+    </button>
+    <button
+        class="buttonOcio"
+        on:click={() => {
+            descontarOpcion(25);
+            setSelectedComponent("work");
+        }}
+    >
+        Aprender a tocar un instrumento 
+    </button>
+    <button
+        class="buttonOcio"
+        on:click={() => {
+            descontarOpcion(0);
+            setSelectedComponent("work");
+        }}
+    >
+        Salir a caminar, leer 0€
+    </button>
 </div>
 
 <style>
-    .txt{
+   .txt{
         color: white;
     }
    .buttonCont {

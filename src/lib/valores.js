@@ -16,7 +16,7 @@ export default {
 
         ],
         Transporte: [
-            { title: "Transporte publico ", valor: 8 },
+            { title: "Transporte publico 8€", valor: 8 },
             { title: "Coche (valor gasolina: 10€)", valor: 8 },
             { title: "Bicicleta", valor: 0 },
             { title: "Caminando", valor: 0 },

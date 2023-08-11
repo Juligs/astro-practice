@@ -12,6 +12,8 @@
 		Food,
 		Ocio,
 		Transport,
+		Ocio2,
+		Work
 	} from "$components";
 	import { userData, selectedComponent, setSelectedComponent } from "$stores";
 	import { fade } from "svelte/transition";
@@ -24,6 +26,8 @@
 		food: Food,
 		ocio: Ocio,
 		transport: Transport,
+		ocio2: Ocio2,
+		work: Work
 	};
 </script>
 
@@ -33,7 +37,7 @@
 	href="https://www.elmundo.es/"
 	title="elmundo.es"
 >
-	<img src="./src/lib/images/general/bola_mundo.svg" alt="El Mundo" />
+	<img src="./bola_mundo.svg" alt="El Mundo" />
 </a>
 <div class="presupuesto">
 	<p>Presupuesto disponible: {$userData.presupuesto}€</p>

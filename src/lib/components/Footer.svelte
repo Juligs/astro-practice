@@ -3,7 +3,7 @@
 
     <div class="flex flex--col flex--jcenter flex--acenter">
       <a class="footer__logo" href="https://www.elmundo.es/" target="_blank">
-        <img src="./src/lib/images/general/logo_mundo.svg" alt="elmundo.es" title="elmundo.es">
+        <img src="./logo_mundo.svg" alt="elmundo.es" title="elmundo.es">
       </a>
       <div class="footer__credits">
         <p><span class="footer__job"> Tratamiento de datos y redacción </span> <span class="footer__author"> Ana Sousa

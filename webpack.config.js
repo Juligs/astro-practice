@@ -48,7 +48,7 @@ module.exports = {
     //this is what enables users to leave off the extension when importing
     resolve: {
         extensions: ['.mjs', '.js', '.svelte'],
-        conditionNames: ['import', 'module', 'require', 'default'],
+        conditionNames: ['import', 'module', 'require', 'default', 'svelte'],
     },
     plugins: [
         //Allows to create an index.html in our build folder 

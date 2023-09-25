@@ -12,7 +12,7 @@ module.exports = {
     //Where we put the production code
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/scripts.js',
+        filename: ('js/index.js'),
         publicPath: '/',
     },
     module: {
@@ -57,7 +57,7 @@ module.exports = {
         }),
         //This gets all our css and put in a unique file
         new MiniCssExtractPlugin({
-            filename: 'styles.css'
+            filename: 'css/styles.css'
         }),
 
         new Dotenv(),

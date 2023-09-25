@@ -12,7 +12,7 @@ module.exports = {
     //Where we put the production code
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
+        filename: 'js/scripts.js',
         publicPath: '/',
     },
     module: {

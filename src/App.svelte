@@ -8,14 +8,14 @@
 
 <div>
   <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
+    <a href="./">Home</a>
+    <a href="./about">About</a>
+    <a href="./blog">Blog</a>
   </nav>
 
   <Router>
-    <Route path="/" component={Home} />
-    <Route path="/about" component={About} />
-    <Route path="/blog" component={Blog} />
+    <Route path="./" component={Home} />
+    <Route path="./about" component={About} />
+    <Route path="./blog" component={Blog} />
   </Router>
 </div>

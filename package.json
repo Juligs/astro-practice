@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && npm run build:reorganize-files",
+    "build": "astro build && npm run build:prepare-prod-files",
     "preview": "astro preview",
     "astro": "astro",
-    "build:reorganize-files": "node reorganize-files.js"
+    "build:prepare-prod-files": "node prepare-prod-files.js"
   },
   "dependencies": {
     "@astrojs/svelte": "^5.2.0",

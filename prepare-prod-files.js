@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
+const imageExtensions = ['png', 'jpg', 'jpeg', 'svg', 'gif', 'webp']
+
 const colors = {
     reset: '\x1b[0m',
     green: '\x1b[32m',
@@ -13,11 +15,12 @@ const logInfo = (str) => console.log(colors.cyan, str, colors.reset)
 // array with necessary folders for upload
 const OUT_FOLDER = 'dist'
 const ASTRO_FOLDER = '_astro'
+const PUBLIC_FOLDER = 'public'
 const BUILT_FILES_FOLDER = OUT_FOLDER + '/' + ASTRO_FOLDER
 const PREPARE_FOLDERS = [`${OUT_FOLDER}/css`, `${OUT_FOLDER}/js`, `${OUT_FOLDER}/images`]
 const BUILT_FILES_TO_FOLDERS = {
     css: 'css',
-    js: 'js'
+    js: 'js',
 }
 
 
@@ -40,6 +43,15 @@ for (const [fileExtension, dir] of Object.entries(BUILT_FILES_TO_FOLDERS)) {
     })
 }
 
+// Move images to their respective directories
+fs.readdirSync(PUBLIC_FOLDER).forEach(file => {
+    if (imageExtensions.some(ext => file.endsWith(ext))) {
+        const newFileLocation = path.join(OUT_FOLDER, 'images', file)
+        fs.copyFileSync(`${PUBLIC_FOLDER}/${file}`, newFileLocation)
+        logSuccess(`Moved: ${file} to ${newFileLocation}`)
+    }
+})
+
 /* Update HTML references after moving files */
 function updateHTMLImports() {
     const PATH_TO_HTML = OUT_FOLDER + '/index.html'
@@ -55,13 +67,16 @@ function updateHTMLImports() {
                 new RegExp(`href="/${ASTRO_FOLDER}/(.*?).${fileExtension}"`, 'g'),
                 `href="/${outFileFolder}/$1.${fileExtension}"`
             )
-        }
-
-        // Update JS paths
-        if (fileExtension === 'js') {
+        } else if (fileExtension === 'js') {
             htmlContent = htmlContent.replace(
                 new RegExp(`src="/${ASTRO_FOLDER}/(.*?).${fileExtension}"`, 'g'),
                 `src="/${outFileFolder}/$1.${fileExtension}"`
+            )
+        } else {
+            // Import images also
+            htmlContent = htmlContent.replace(
+                new RegExp(`src="/${ASTRO_FOLDER}/(.*?).(${imageExtensions.join("|")})"`, 'g'),
+                `src="/images/$1.$2"`
             )
         }
     }
@@ -77,5 +92,6 @@ updateHTMLImports()
 
 logInfo(`Removing folder: ${BUILT_FILES_FOLDER}...`)
 fs.rmdirSync(BUILT_FILES_FOLDER)
+fs.rmSync(OUT_FOLDER + '/' + "favicon.svg")
 
 logSuccess('Files have been reorganized and imports updated 🚀')

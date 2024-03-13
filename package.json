@@ -1,17 +1,15 @@
 {
   "name": "receptive-ring",
   "version": "0.0.1",
-
   "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run prebuild && astro build", 
+    "build": "astro build && npm run build:reorganize-files",
     "preview": "astro preview",
     "astro": "astro",
-    "prebuild": "mkdir dist\\js && mkdir dist\\css" 
+    "build:reorganize-files": "node reorganize-files.js"
   },
-  
   "dependencies": {
     "@astrojs/svelte": "^5.2.0",
     "astro": "^4.5.2",

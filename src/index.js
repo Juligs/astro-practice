@@ -1,5 +1,5 @@
 import App from './App.svelte';
-import './css/global.css'; // Importa tu archivo global CSS
+// import './css/global.css'; // Importa tu archivo global CSS
 import './css/main.scss'
 
 

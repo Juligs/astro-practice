@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "npm run prebuild && astro build", 
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prebuild": "mkdir dist\\js && mkdir dist\\css" 
   },
+  
   "dependencies": {
     "@astrojs/svelte": "^5.2.0",
     "astro": "^4.5.2",

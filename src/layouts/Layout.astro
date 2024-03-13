@@ -1,11 +1,15 @@
+
 ---
+import { metas } from '../../includes/01-metas';
+import { analiticas } from '../../includes/02-analitica';
+import { publi } from '../../includes/03-publi';
+
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
 ---
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -14,7 +18,13 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name ="analiticas" content={analiticas} />
+		<meta name ="metas" content={metas} />
+		<meta name ="publi" content={publi} />
+		
+		
 		<title>{title}</title>
+		
 	</head>
 	<body>
 		<slot />

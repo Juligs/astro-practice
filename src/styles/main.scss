@@ -42,9 +42,8 @@ body {
 @import 'layout';
 
 /* GENERALES INICIALES*/
-@import 'general/header';
+@import 'general/header-apertura'; //cabecera
 @import 'general/txt'; //texto, tamaño y demás
-@import 'general/date'; //fecha
 @import 'general/credits'; //en horizontal, columna...
 @import 'general/social';
 @import 'general/photo';

@@ -1,0 +1,141 @@
+.header-apertura {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+    z-index: -1;
+
+    &__background {
+        top: 0px;
+        left: 0px;
+        background-image: url('https://e00-lab-elmundo.uecdn.es/caso-koldo-quien-es-quien/images/photos/CABECERA 2 - copia.jpg');
+        background-repeat: no-repeat;
+        position: fixed;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        min-height: 100vh;
+        width: 100%;
+        opacity: 0;
+        animation: back_opacity 1.5s normal forwards ease-in;
+        // animation-delay: 1s;
+        z-index: -1;
+        transition: background-position 0.3s ease-in-out;
+
+    }
+
+    &__group {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-family: $font-roboto;
+        color: $color-font2;
+        font-size: 18px;
+        align-items: center;
+
+    }
+
+    &__lead {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        z-index: 2;
+    }
+
+    &__sintillo {
+        display: inline;
+        font-family: $font-roboto, Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        letter-spacing: 0;
+        margin-bottom: 30px;
+    }
+
+    &__title {
+        color: #FFF;
+        text-align: center;
+        font-family: $font-mundo;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 110%;
+        width: 356px;
+        padding: 0px;
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: title_left 1s normal forwards linear;
+        animation-delay: 0.5s;
+    }
+
+    &__txt {
+        color: #FFF;
+        text-align: center;
+        font-family: $font-mundo;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 115%;
+        width: 549px;
+        opacity: 0;
+        animation: title_left 2s normal forwards linear;
+        animation-delay: 1s;
+    }
+
+}
+@media screen and (max-width: 850px) {
+    .header-apertura {
+        &__title {
+            font-size: 30px;
+            // width: 100%;
+        }
+        &__txt {
+            font-size: 18px;
+            width: 100%;
+        }
+        &__background {
+    
+                background-position-x: 65%;
+            
+        }
+       &__pages{
+              button{
+                width: 120px;
+              }
+         
+       }
+    }
+}
+@keyframes back_opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes title_left {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        // transform: translateY(0%);
+        opacity: 1;
+    }
+}

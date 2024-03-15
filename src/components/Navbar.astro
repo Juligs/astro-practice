@@ -1,0 +1,48 @@
+---
+---
+
+<div class="navbar">
+    <a href="./index.html"> <button>Quién es Quién</button> </a>
+    <a href="./graficos.html"> <button>Así operaban</button> </a>
+    <a href="./cronologia.html"> <button>Cronología</button> </a>
+</div>
+
+
+<style lang="scss , sass">
+.navbar {
+    z-index: 9999;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        font-family: 'Mundo';
+        width: 100%;
+        padding: 7px 0px;
+}
+
+button {
+    margin-top: 34px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px;
+    outline: 0px;
+    font-family: 'Mundo';
+    user-select: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 300;
+    color: #fff;
+    width: 180px;
+    padding: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+
+    &:hover {
+        color: #ff3333;
+    }
+}
+</style>
